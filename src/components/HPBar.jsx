@@ -1,10 +1,11 @@
 import React from "react";
 
-export default function HPBAr({ hp }) {
+export default function HPBAr({ maxHp, currentHp }) {
+    currentHp= currentHp * 100 / maxHp;
   const getColor = () => {
-    if (hp >= "50") {
+    if (currentHp >= "50") {
       return "bg-green-500";
-    } else if (hp > "20" && hp < "50") {
+    } else if (currentHp > "20" && currentHp < "50") {
       return "bg-yellow-500";
     } else {
       return "bg-red-500";
@@ -16,7 +17,7 @@ export default function HPBAr({ hp }) {
       <div className="w-32 h-4 bg-gray-200">
         <div
           className={`h-full ${getColor()}`}
-          style={{ width: `${hp}%` }}
+          style={{ width: `${currentHp}%` }}
         >
            
         </div>
